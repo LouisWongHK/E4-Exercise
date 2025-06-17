@@ -1,7 +1,10 @@
 name: Automated Lighthouse Report
 
 on:
-  workflow_dispatch:  # Allows manual triggering from GitHub UI
+  workflow_run:
+    workflows: ["Deploy Next.js site to pages"]  # Replace with the name of the triggering workflow (from its `name:` field)
+    types:
+      - completed
 
 jobs:
   run-script-and-archive:
